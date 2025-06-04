@@ -1,0 +1,409 @@
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Estilos Generales --- */
+:root {
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #2a2a2a;
+    --text-color: #e0e0e0;
+    --accent-color: #a02020; /* Un rojo oscuro para acentos */
+    --link-color: #b0b0b0;
+    --hover-color: #ffffff;
+    --border-color: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+h1, h2, h3 {
+    font-family: 'Creepster', cursive;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--secondary-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para el responsivo */
+}
+
+header h1 {
+    margin: 0;
+    color: var(--hover-color);
+    font-size: 2.5em;
+}
+
+/* Menú Principal */
+.main-menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Para el responsivo */
+}
+
+.main-menu li {
+    position: relative;
+}
+
+.main-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.main-menu a:hover {
+    background-color: var(--accent-color);
+    color: var(--hover-color);
+}
+
+/* Submenú Desplegable */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--secondary-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1;
+    border-top: 3px solid var(--accent-color);
+    border-radius: 0 0 5px 5px;
+    animation: fadeIn 0.3s ease-in-out forwards; /* Animación de aparición */
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu a {
+    padding: 12px 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.submenu a:hover {
+    background-color: var(--accent-color);
+    color: var(--hover-color);
+}
+
+/* Mostrar submenú al pasar el mouse */
+.dropdown:hover > .submenu {
+    display: block;
+}
+
+/* Animación de FadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Sección Hero (Inicio) --- */
+.hero {
+    background: url('../img/home-hero.jpg') no-repeat center center/cover;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--hover-color);
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Superposición oscura */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--hover-color);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #8a1a1a; /* Un tono más oscuro del acento */
+    transform: translateY(-3px);
+}
+
+/* --- Secciones de Contenido General --- */
+main {
+    padding: 40px 0;
+}
+
+.section-text {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.section-text ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.section-text li {
+    margin-bottom: 8px;
+}
+
+.about-game {
+    text-align: center;
+}
+
+.about-game h3 {
+    color: var(--accent-color);
+    font-size: 2.2em;
+    margin-bottom: 25px;
+}
+
+/* --- Tarjetas de Personajes y Locaciones --- */
+.character-grid, .location-grid, .creature-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.character-card, .location-card, .creature-card {
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover, .location-card:hover, .creature-card:hover {
+    transform: translateY(-5px);
+}
+
+.character-card img, .location-card img, .creature-card img {
+    width: 100%;
+    height: 250px; /* Altura fija para uniformidad */
+    object-fit: cover; /* Recorta la imagen para que quepa */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.character-card h3, .location-card h3, .creature-card h3 {
+    color: var(--accent-color);
+    font-size: 1.6em;
+    margin: 15px 0 10px;
+    text-align: center;
+}
+
+.character-card p, .location-card p, .creature-card p {
+    padding: 0 15px 15px;
+    font-size: 0.95em;
+    color: var(--link-color);
+}
+
+.note {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-bg);
+    color: var(--link-color);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+/* --- Diseño Responsivo --- */
+
+/* Para pantallas más pequeñas (tabletas y móviles) */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.8em; }
+
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 15px;
+    }
+
+    .main-menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .main-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-menu a {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .submenu {
+        position: static; /* Cambia a estático para que fluya con el contenido */
+        box-shadow: none;
+        border-top: none;
+        width: 100%;
+        animation: none; /* Desactiva la animación para móviles */
+        background-color: #3a3a3a; /* Un poco más claro para el submenú en móvil */
+    }
+
+    .submenu a {
+        padding-left: 30px; /* Indenta los elementos del submenú */
+    }
+
+    .dropdown:hover > .submenu {
+        display: block;
+    }
+
+    .hero {
+        height: 400px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .character-grid, .location-grid, .creature-gallery {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+    }
+
+    .character-card img, .location-card img, .creature-card img {
+        height: 200px;
+    }
+
+    .section-text {
+        padding: 20px;
+    }
+}
+
+/* Para pantallas aún más pequeñas (smartphones) */
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+    h3 { font-size: 1.5em; }
+
+    .hero {
+        height: 300px;
+    }
+
+    .hero-content {
+        padding: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
